@@ -1,0 +1,406 @@
+# GitHub注册
+
+## 登录官网进行注册
+
+https://github.com
+
+在网站首页选择`sign up fro GitHub`按钮使用邮箱进行注册
+
+![image-20260107204451366](C:\Users\acer\AppData\Roaming\Typora\typora-user-images\image-20260107204451366.png)
+
+推荐使用微软邮箱，可以正常收发邮件，后面会有邮件验证
+
+![image-20260107211029528](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107211029649.png)
+
+上面填写完成后，选择 `Create account` 按钮进行账户创建
+
+## 安装Git
+
+[https://git-scm.com/downloads](https://git-scm.com/downloads?spm=5176.28103460.0.0.7cdb7551nShTWl)
+
+根据版本号选择需要安装的程序
+
+![image-20260107205842693](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107205842732.png
+
+![image-20260107210916434](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107210916662.png)
+
+下载之后一直点击`next`按钮，注意替换安装路径，避免安装在C盘；
+
+![image-20260107211509662](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107211509712.png)
+
+安装完成后 在需要将云端代码拉取到本地的文件夹中右击鼠标右键，选择`Open Git Bash here`
+
+![image-20260107211741990](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222502017.png)
+
+## 配置git
+
+### 检查git版本
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ git --version
+git version 2.52.0.windows.1
+```
+
+### 配置个人名称及邮箱
+
+这个邮箱就是前面注册GitHub的时候的微软邮箱
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ git config --global user.name "fanxiaofan"
+
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ git config --global user.email "fanwensheng019@outlook.com"
+
+
+```
+
+### 检查密钥对
+
+检查本地是否存在ssh的密钥对，这是远程链接上git的关键；
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ls -al ～/.ssh
+ls: cannot access '～/.ssh': No such file or directory
+```
+
+本地显示没有，需要生成一下
+
+生成命令如下
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ssh-keygen -t ed25519 -C "fanwensheng019@outlook.com"
+
+```
+
+这一步不需要操作，直接回车就行；
+
+![image-20260107213328393](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222452466.png)
+
+这一步直接输入yes就可以了 回车执行
+
+![image-20260107213409519](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222445421.png)
+
+![image-20260107213439329](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222441431.png)
+
+上面回车后到 这一步是显示需要是否设置密码，默认不设置，直接回车
+
+![image-20260107213453222](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222435882.png)
+
+再次确认，直接回车
+
+![image-20260107213546180](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222430038.png)
+
+最后生成密钥
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ssh-keygen -t ed25519 -C "fanwensheng019@outlook.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/acer/.ssh/id_ed25519):
+/c/Users/acer/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? yes
+Enter passphrase for "/c/Users/acer/.ssh/id_ed25519" (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/acer/.ssh/id_ed25519
+Your public key has been saved in /c/Users/acer/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:CUQo73CYT9Be+hLpmspfSV+tf1hKO5ON7LkPRSyM+6U fanwensheng019@outlook.com
+The key's randomart image is:
++--[ED25519 256]--+
+|   . oo          |
+|  o o..   o .    |
+|   B +.  . o o   |
+|  + O  . .o o    |
+|   B +  So . o   |
+|    * + . o.+.   |
+|   o + . .oEO    |
+|. o .     .Xoo   |
+|.o..      .=*.   |
++----[SHA256]-----+
+
+```
+
+### **启动** `ssh-agent` **并添加私钥**
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ eval $(ssh-agent -s)
+Agent pid 161
+
+```
+
+检查生成的密钥对
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ls -al ~/.ssh/
+total 39
+drwxr-xr-x 1 acer 197609   0 Jan  6 21:57 ./
+drwxr-xr-x 1 acer 197609   0 Jan  7 21:23 ../
+drwxr-xr-x 1 acer 197609   0 Jan  7 21:37 agent/
+-rw-r--r-- 1 acer 197609 419 Jan  7 21:30 id_ed25519
+-rw-r--r-- 1 acer 197609 108 Jan  7 21:30 id_ed25519.pub
+-rw-r--r-- 1 acer 197609 923 Jan  6 21:57 known_hosts
+-rw-r--r-- 1 acer 197609 188 Jan  6 21:50 known_hosts.old
+```
+
+添加私钥
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ssh-add ~/.ssh/id_ed25519
+Identity added: /c/Users/acer/.ssh/id_ed25519 (fanwensheng019@outlook.com)
+
+```
+
+### GitHub添加公钥
+
+查看公钥，并将复制下来
+
+![image-20260107214417518](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222422025.png)
+
+打开GitHub界面，依次进入右上角图像➔`settings`➔`SSH and GPG keys`➔`New SSH key`➔
+
+![image-20260107214745775](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222415605.png)
+
+将前面复制过来的公钥复制进行，title名字随意，点击`add ssh key`完成公钥配置
+
+![image-20260107214959980](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222409870.png)
+
+测试链接
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库
+$ ssh -T git@github.com
+Hi fanxiaofan01! You've successfully authenticated, but GitHub does not provide shell access.
+
+```
+
+### 克隆代码
+
+![image-20260107215411901](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222402288.png)
+
+从这个界面上查找GitHub的ssh克隆地址，在git上进行克隆
+
+```bash
+git clone git@github.com:fanxiaofan01/fanxiaofan_work.git
+```
+
+克隆完成，从远端拉取代码
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库/my_notes_imgs (main)
+$ git pull
+remote: Enumerating objects: 81, done.
+remote: Counting objects: 100% (81/81), done.
+remote: Compressing objects: 100% (79/79), done.
+Unpacking objects:  37% (30/79), 2.08 MiB | 19.00 KiB/s
+
+```
+
+当第一提交的时候报这个警告
+
+```bash
+acer@˧С▒▒▒ĵ MINGW64 /d/GitHub_代码库/fanxiaofan_work (notes)
+$ git push
+fatal: The current branch notes has no upstream branch.
+To push the current branch and set the remote as upstream,
+ use
+
+    git push --set-upstream origin notes
+
+To have this happen automatically for branches without a t
+racking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```
+
+直接按照警告，推送新建分支
+
+```bash
+git push --set-upstream origin notes
+```
+
+后续就是同步代码常用命令
+
+```bash
+# 添加修改
+git add .
+
+# 提交
+git commit -m "docs: update Git notes"
+
+# 推送（现在可以直接用 git push！）
+git push
+```
+
+### 安装小乌龟
+
+拉取代码后正常该文件夹里面的图标应该是绿色的，类似这样的，如果没有变化，需要安装小乌龟；
+
+![image-20260107220436811](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222354936.png)
+
+
+
+https://tortoisegit.org/download/
+
+小乌龟下载地址，选择适合的版本号
+
+![image-20260107220737473](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222349474.png)
+
+下载后正常安装即可
+
+问题：安装小乌龟 后  文件图标并没有 带上
+
+需要到注册机 处处理
+
+- 按 `Win + R`，输入 `regedit`，回车
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+```
+
+将9个人间前面都添加8个空格，
+
+![image-20260107220943243](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222343916.png)
+
+### **重启资源管理器（无需重启电脑！）**
+
+1. 按 `Ctrl + Shift + Esc` 打开任务管理器
+2. 找到 **Windows 资源管理器**
+3. 右键 → **重新启动**
+
+就能够看到对应的文件带上了图标
+
+# PicGo
+
+## 软件下载
+
+https://github.com/Molunerfinn/PicGo/releases
+
+![image-20260107221253330](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222333775.png)
+
+下载后直接安装即可
+
+## GitHub配置
+
+### **第一步：在 GitHub 创建图床仓库**
+
+1. 登录 GitHub，点击右上角 **+ → New repository**
+2. 填写：
+   - **Repository name**: `my-notes-imgs`（可自定义）
+   - **Description**: 可选
+   - ✅ **Public**（必须公开！否则图片无法外链）
+   - ❌ 不要勾 “Add a README”
+3. 点击 **Create repository**
+
+------
+
+### **第二步：生成 GitHub Personal Access Token (PAT)**
+
+1. 进入 https://github.com/settings/tokens
+2. 点击 **Tokens (classic) → Generate new token → Generate new token (classic)**
+3. 填写：
+   - **Note**: `Typora PicGo`
+   - **Expiration**: 90 天或更长
+   - ✅ **勾选 `repo` 权限**（关键！）
+4. 滚动到底部，点击 **Generate token**
+5. **复制生成的 token**（只显示一次！建议保存到记事本）
+
+> 示例 token：`ghp_AbCdEfGhIjKlMnOpQrStUvWxYz123456789`
+
+------
+
+### **第三步：安装并配置 PicGo**
+
+#### 安装 PicGo
+
+- 下载 **PicGo-Setup-x.x.x.exe**（Windows 用户）
+- 安装时**不要装在 `Program Files`**（权限问题），建议装在 `D:\PicGo`
+
+#### 配置 GitHub 图床
+
+打开 PicGo → 左侧 **图床设置** → 选择 **GitHub**
+
+填写以下信息：
+
+表格
+
+
+
+| 字段       | 值                                                     |
+| :--------- | :----------------------------------------------------- |
+| 仓库名     | `你的用户名/仓库名`（如 `fanxiaofan01/my-notes-imgs`） |
+| 分支名     | `main`（新仓库默认是 `main`，不是 `master`）           |
+| Token      | 粘贴你刚才生成的 **Personal Access Token**             |
+| 存储路径   | `img/`（可选，图片会存到仓库的 `img` 文件夹）          |
+| 自定义域名 | `https://cdn.jsdelivr.net/gh/你的用户名/仓库名`        |
+
+![image-20260107221517585](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222326913.png)
+
+需要注意，自定义域名，是这个
+
+`https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs`
+
+而不是GitHub的https地址，注意区分
+
+![image-20260107221849972](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222320417.png)
+
+上面配置完成后，可以上传照片测试一下
+
+![image-20260107222050757](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222312193.png)
+
+![image-20260107222056895](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222305267.png)
+
+显示上传成功
+
+> ✅ **自定义域名说明**：
+> GitHub 原始链接（`raw.githubusercontent.com`）在国内可能慢或打不开，
+> 使用 **jsDelivr CDN 加速** 可大幅提升加载速度！
+
+#### 启用时间戳重命名（避免冲突）
+
+- 左侧 **PicGo 设置** → 勾选 **✅ 时间戳重命名**
+- 避免同名图片覆盖
+
+#### 设为默认图床
+
+- 回到 **图床设置** → 点击 **设为默认图床**
+
+#### 测试上传
+
+- 点击顶部 **上传区** → 选择一张图片 → 点击 **打开**
+- 成功后会弹出链接，说明配置 OK ✅
+
+## typora配置
+
+1. 打开 Typora
+2. 进入 **文件 → 偏好设置 → 图像**
+3. 按如下配置：
+
+表格
+
+
+
+| 选项                           | 设置                                                |
+| :----------------------------- | :-------------------------------------------------- |
+| 插入图片时...                  | **上传图片**                                        |
+| ✅ 对本地位置的图片应用上述规则 | **勾选**                                            |
+| 上传服务                       | **PicGo (app)**                                     |
+| PicGo 路径                     | 选择你安装的 `PicGo.exe`（如 `D:\PicGo\PicGo.exe`） |
+
+1. 点击 
+
+   验证图片上传选项
+
+   - 如果弹出“上传成功” → 配置完成！
+   - 如果失败 → 检查 PicGo 是否运行、Token 是否正确
+
+![image-20260107222146227](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222146294.png)
+
+按照这个进行配置
+
+![image-20260107222246679](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222246754.png)
