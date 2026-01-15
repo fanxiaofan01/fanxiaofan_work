@@ -404,3 +404,204 @@ https://github.com/Molunerfinn/PicGo/releases
 按照这个进行配置
 
 ![image-20260107222246679](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260107222246754.png)
+
+## SM.SM配置
+
+### **✅ 配置步骤：PicGo + sm.ms 图床**
+
+#### **第一步：确保已安装 Node.js**
+
+sm.ms 插件依赖 Node.js 环境：
+
+- 下载地址：[https://nodejs.org/](https://nodejs.org/?spm=5176.28103460.0.0.7cdb7551izxWQV) （推荐 LTS 版本）
+
+- 安装后，在终端执行：
+
+  ![image-20260115215836436](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260115225711603.png)![image-20260115220001882](D:\GitHub_代码库\fanxiaofan_work\typora插图上传GitHub.assets\image-20260115220001882.png)
+
+  随便打开git运行语句查看软件是否安装成功
+
+  ```bash
+  acer@˧С▒▒▒ĵ MINGW64 /d
+  $ node -v
+  v24.13.0
+  
+  acer@˧С▒▒▒ĵ MINGW64 /d
+  $ npm -v
+  11.6.2
+  
+  ```
+
+  若能显示版本号，说明安装成功。
+
+------
+
+#### **第二步：安装 sm.ms 插件**
+
+1. 打开 **PicGo**。
+
+2. 点击左侧菜单 **「插件设置」**。
+
+3. 在搜索框中输入：picgo-plugin-smms
+
+   ![image-20260115220355498](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260115225633980.png)
+
+   显示找不到插件，需要在手动安装一下
+
+   ```bash
+   acer@˧С▒▒▒ĵ MINGW64 /d
+   $ npm install -g picgo-plugin-smms
+   npm error code E404
+   npm error 404 Not Found - GET https://registry.npmjs.org/picgo-plugin-smms - Not
+    found
+   npm error 404
+   npm error 404  The requested resource 'picgo-plugin-smms@*' could not be found o
+   r you do not have permission to access it.
+   npm error 404
+   npm error 404 Note that you can also install from a
+   npm error 404 tarball, folder, http url, or git url.
+   npm error A complete log of this run can be found in: C:\Users\acer\AppData\Loca
+   l\npm-cache\_logs\2026-01-15T14_03_24_614Z-debug-0.log
+   
+   ```
+
+   显示安装完成，重启`picgo`
+
+4. 找到插件 
+
+   `picgo-plugin-smms`
+
+   （作者通常是 
+
+   ```
+   CodeFalling
+   ```
+
+    或社区维护者），点击 
+
+   「安装」
+
+   。
+
+   > 💡 如果搜索不到，可手动安装：
+
+   bash
+
+   
+
+   ```
+   npm install -g picgo-plugin-smms
+   ```
+
+   然后在 PicGo 插件设置中点击「导入插件」，选择全局安装的路径。
+
+5. 安装完成后，**重启 PicGo**。
+
+------
+
+#### **第三步：配置 sm.ms 图床**
+
+1. 重启后，进入 **「图床设置」**。
+2. 你会看到新增的 **「SM.MS」** 选项（或类似名称）。
+3. 点击进入配置页面，填写以下信息：
+
+表格
+
+
+
+| 配置项         | 说明                                                         |
+| :------------- | :----------------------------------------------------------- |
+| **Token**      | 可选。如果你有 [sm.ms 的 API Token](https://sm.ms/home/user)（登录后在用户中心获取），可以填写以提升上传限额和稳定性；否则留空也可上传（但可能受限）。 |
+| **自定义域名** | 一般不需要填。默认返回 `https://i.loli.net/...` 或 `https://s2.loli.net/...` 等 sm.ms 的 CDN 链接。 |
+
+> 🔔 注意：sm.ms **无需仓库名、分支等参数**，它是一个独立的图床服务，不是基于 Git 的。
+
+1. 点击 **「确定」**，然后 **「设为默认图床」**。
+
+------
+
+#### **第四步：测试上传**
+
+- 在 PicGo 主界面点击「上传区」，选择一张图片上传。
+
+- 成功后会自动复制链接，格式类似：
+
+  text
+
+  
+
+  ```
+  https://s2.loli.net/2026/01/15/xxxxxx.png
+  ```
+
+------
+
+### **⚠️ 注意事项**
+
+1. sm.ms 是免费图床，但有使用限制
+
+   ：
+
+   - 免费用户单文件 ≤ 5MB（部分时期放宽至 10MB）。
+   - 上传频率过高可能被临时限流。
+   - 不保证永久存储（虽然目前大多数图片长期可用）。
+
+2. 隐私问题
+
+   ：
+
+   - 所有图片公开可访问，**切勿上传敏感内容**。
+
+3. 国内访问速度
+
+   ：
+
+   - sm.ms 使用了 `loli.net` CDN，**在中国大陆访问速度较快**，这是它受欢迎的主要原因。
+
+4. Token 获取方式
+
+   ：
+
+   - 访问 [https://sm.ms](https://sm.ms/) → 登录账号 → 进入「User Center」→ 查看 **API Token**。
+
+------
+
+### **🔁 替代建议（如 sm.ms 不稳定）**
+
+如果 sm.ms 出现上传失败或限流，可考虑以下方案：
+
+- **GitHub + jsDelivr CDN**（完全免费，适合技术用户）
+- **Gitee / GitCode**（国内加速，需插件）
+- **阿里云 OSS**（低费用，高稳定，适合长期使用）
+
+------
+
+### **📌 总结**
+
+表格
+
+
+
+| 步骤 | 操作                                        |
+| :--- | :------------------------------------------ |
+| 1    | 安装 Node.js                                |
+| 2    | 在 PicGo 中安装 `picgo-plugin-smms` 插件    |
+| 3    | 重启 PicGo，配置 SM.MS 图床（可选填 Token） |
+| 4    | 测试上传，享受快速图床服务                  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
