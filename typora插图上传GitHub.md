@@ -275,6 +275,37 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconO
 
 就能够看到对应的文件带上了图标
 
+## GitHub本地远程链接
+
+### 下载FastGithub安装包
+
+下载途径一：清华大学云盘下载地址：
+
+[清华大学云盘](https://cloud.tsinghua.edu.cn/d/df482a15afb64dfeaff8/) 下载地址
+
+下载途径二：官方地址：https://github.com/dotnetcore/fastgithub/releases
+
+
+
+2、解压后进入主目录下，双击fastgihub.exe即可运行
+
+![image-20260119222153286](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119222153346.png)
+
+3、从github上更新程序包
+
+目前最新版还是2.1.4，地址：https://github.com/dotnetcore/fastgithub/releases
+
+运行效果：
+
+
+
+
+
+PS：建议exe运行10秒钟后再尝试打开github链接嗷
+————————————————
+版权声明：本文为CSDN博主「蓝多多的小仓库」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_43554335/article/details/134066165
+
 # PicGo
 
 ## 软件下载
