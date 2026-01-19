@@ -285,11 +285,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconO
 
 下载途径二：官方地址：https://github.com/dotnetcore/fastgithub/releases
 
-
+![image-20260119232118382](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119232118464.png)
 
 2、解压后进入主目录下，双击fastgihub.exe即可运行
-
-![image-20260119222153286](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119222153346.png)
 
 3、从github上更新程序包
 
@@ -297,9 +295,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconO
 
 运行效果：
 
-![image-20260119231556494](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119231621638.png)
-
-![image-20260119231757228](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119231757284.png)
+![image-20260119232017633](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119232017688.png
 
 PS：建议exe运行10秒钟后再尝试打开github链接嗷
 ————————————————
