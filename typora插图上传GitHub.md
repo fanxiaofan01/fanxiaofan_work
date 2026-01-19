@@ -289,6 +289,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconO
 
 2、解压后进入主目录下，双击fastgihub.exe即可运行
 
+![image-20260119232310836](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119232310898.png)
+
+![image-20260119232404191](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119232404243.png)
+
 3、从github上更新程序包
 
 目前最新版还是2.1.4，地址：https://github.com/dotnetcore/fastgithub/releases
