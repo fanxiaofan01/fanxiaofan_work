@@ -299,8 +299,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconO
 
 运行效果：
 
-![image-20260119232017633](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260119232017688.png
-
 PS：建议exe运行10秒钟后再尝试打开github链接嗷
 ————————————————
 版权声明：本文为CSDN博主「蓝多多的小仓库」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
