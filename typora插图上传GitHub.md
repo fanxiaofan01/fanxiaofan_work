@@ -446,7 +446,7 @@ sm.ms 插件依赖 Node.js 环境：
 
 - 安装后，在终端执行：
 
-  ![image-20260115215836436](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260115225711603.png)![image-20260115220001882](D:\GitHub_代码库\fanxiaofan_work\typora插图上传GitHub.assets\image-20260115220001882.png)
+  ![image-20260115215836436](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260115225711603.png)![image-20260115220001882](https://gitee.com/fanxiaofan02/my_work/raw/work/typora_img/20260612081720091.png)
 
   随便打开git运行语句查看软件是否安装成功
 
@@ -473,7 +473,7 @@ sm.ms 插件依赖 Node.js 环境：
 
 3. 在搜索框中输入：picgo-plugin-smms
 
-   ![image-20260115220355498](https://cdn.jsdelivr.net/gh/fanxiaofan01/my_notes_imgs/img/20260115225633980.png)
+   ![image-20260115220355498](https://gitee.com/fanxiaofan02/my_work/raw/work/typora_img/20260612081704441.png)
 
    显示找不到插件，需要在手动安装一下
 
@@ -620,7 +620,7 @@ sm.ms 插件依赖 Node.js 环境：
 
 
 
-![image-20260323223659244](D:\GitHub_代码库\fanxiaofan_work\typora插图上传GitHub.assets\image-20260323223659244.png)
+![image-20260323223659244](https://gitee.com/fanxiaofan02/my_work/raw/work/typora_img/20260612081640997.png)
 
 
 
